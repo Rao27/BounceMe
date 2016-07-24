@@ -1,0 +1,184 @@
+#import <GameKit/GameKit.h>
+#import "cocos2d.h"
+#import "Box2D.h"
+#import "GLES-Render.h"
+#import "FlexibleBall.h"
+#import "GTAnimSprite.h"
+#import "MyContactListener.h"
+
+
+#define PTM_RATIO 32
+#define N_OF_SECTION 1
+#define N_OF_ROW 10
+struct ArrowBodys {
+    b2Body *body;
+};
+@interface Game : CCLayer<UITableViewDataSource, UITableViewDelegate> {
+    std::vector<ArrowBodys>_arrowBody;
+    bool findNewBodyForArrow;
+    std::vector<ArrowBodys>::iterator toBeDeletedArrow;
+    bool removeArrowBody;
+    float showArrowUpto;
+    float ArrowXPosition;
+    CGSize screenSize;
+    CCTMXTiledMap *defaultMap;
+    CCTMXTiledMap *map1;
+    CCTMXTiledMap *map2;
+    CCTMXTiledMap *map3;
+    CCTMXTiledMap *map4;
+    CCTMXLayer *layer1;
+    CCTMXLayer *stars;
+    CCTMXLayer *obstacleLayer1;
+    CCTMXLayer *obstacleLayer2;
+    float nextUpdateMapPosition;
+    int nextUpdateMap;
+    BOOL keepMapMoving;
+    b2World *world;
+    GLESDebugDraw *m_debugDraw;
+    b2Body *tileBody;
+    b2Fixture *tileFixture;
+    FlexibleBall *node;
+    BOOL gameOver;
+    float widthInMeters;
+    float heightInMeters;
+    b2Vec2 lowerLeftCorner;
+    b2Vec2 lowerRightCorner;
+    b2Vec2 upperLeftCorner;
+    b2Vec2 upperRightCorner;
+    b2Body* groundBody;
+    b2BodyDef groundBodyDef;
+    b2Body *holdingBody1;
+    b2Body *holdingBody2;
+    b2Body *holdingBody3;
+    b2Fixture *left;
+    b2Fixture *right;
+    b2Fixture *top;
+    b2Fixture *bottom;
+    b2Fixture *holdleft;
+    b2Fixture *holdRight;
+    b2Fixture *holdBottom;
+    b2EdgeShape screenBorderShape;
+    CCSprite *background1;
+    CCSprite *layer11;
+    CCSprite *layer2;
+    CCSprite *playerBackground;
+    CCSprite *playershadow;
+    CCSprite *gamePlayer;
+    Float32 shadowScale;
+    NSMutableArray *tileBodySet;
+    float prvposition;
+    int score;
+    CCLabelTTF *scoreLabel;
+    int fontSize;
+    BOOL setCenter;
+    float heightDefaultMap;
+    float heightMap1;
+    float heightMap2;
+    float heightMap3;
+    float heightMap4;
+    float totalHightOfMaps;
+    bool makeBorders;
+    int speed;
+    CCLabelTTF *mTimeLbl;
+    CCLabelTTF *scoreCountLabel;
+    float mTimeInSec;
+    int min;
+    int hours;
+    int sec;
+    BOOL playbtnpressed;
+    GTAnimSprite *frame_normal;
+    CCMenuItemImage *frontImage;
+    CCMenu *frontMenu;
+    CCMenuItemImage *firstMenuImage;
+    CCMenu *firstMenu;
+    CCMenuItemImage *secondMenuImage;
+    CCMenu *secondMenu;
+    CCMenuItemImage *thirdMenuImage;
+    CCMenu *thirdMenu;
+    BOOL menuOpen;
+    float deltaAngle;
+    float radius;
+    BOOL fshareFlag;
+    BOOL statsFlag;
+    BOOL volumeFlag;
+    CCSprite *blankLayer;
+    NSMutableArray *starsArray;
+    MyContactListener *_contactListener;
+    int speedUpTime;
+    CCMenuItemImage *pauseImage;
+    CCMenu *pauseMenu;
+    CCMenuItemImage *restartImage;
+    CCMenu *restartMenu;
+    CCMenuItemImage *volumeImage;
+    CCMenu *volumeMenu;
+    CCMenuItemImage *quiteImage;
+    CCMenu *quiteMenu;
+    BOOL pauseMenuOpen;
+    NSMutableArray *takenStars;
+    int takenTotalStars;
+    int startAdDingStarstoTotalStars;
+    int StarsToBeAdded;
+    int totalStars;
+    BOOL doRandomAnimation;
+    int count;
+    float prevX;
+    float prevY;
+    int gotStar;
+    NSMutableArray *gameScores;
+    NSMutableArray *gameTimes;
+    double gameScore;
+    double gameTime;
+    CCSprite *scorebg;
+    CCSprite *statisticbg;
+    CCMenuItemImage *cancleMenu;
+    CCSprite *spike;
+    b2Body *spikeBody;
+    b2BodyDef spikeBodyDef;
+    b2Fixture *groundBodyFixture;
+    CCSprite *countSprite;
+    BOOL addnewMap;
+    CCSprite *hiddentile;
+    int toMakeMapVisible;
+    float makeMapVisible;
+    bool gamestarted;
+    CCSprite *bottomCloud;
+    bool volume;
+    
+    CCParticleSystem *emitter;
+    CCParticleSystem *emitter1;
+    CCParticleSystem *emitter2;
+    CCParticleSystem *emitter3;
+    CCParticleSystem *emitter4;
+    CCParticleSystem *emitter5;
+    CCParticleSystem *emitter6;
+    CCParticleSystem *emitter7;
+    CCParticleSystem *emitter8;
+    CCParticleSystem *emitter9;
+    CCParticleSystem *emitter10;
+    CCParticleSystem *emitter11;
+    CCParticleSystem *emitter12;
+    CCParticleSystem *emitter13;
+    CCParticleSystem *emitter14;
+    CCParticleSystem *emitter15;
+    CCParticleSystem *emitter16;
+    CCParticleSystem *emitter17;
+    CCParticleSystem *emitter18;
+    CCParticleSystem *emitter19;
+    UITableView *table;
+    int count1[N_OF_SECTION];
+    CCSprite *player;
+    bool isInstructionShown;
+    CCSprite *introductionScreen;
+    CCSprite *ArrowSprite;
+}
++(CCScene *) scene:(int)sceneIdentifire;
++(id)nodeWithGameLevel:(int)level;
+-(void)playBackgroundInMainMenu;
+-(void)playBackGroundInGamePlay;
+-(void)playBackGroundMusicInDisplayScore;
+-(void)playBackGroundMusic;
+-(void)stopBackGroundMusic;
+-(void)pauseMenuAnimation;
+-(void)intturuptHandler;
+@property BOOL gameOver;
+@end

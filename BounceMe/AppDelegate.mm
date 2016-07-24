@@ -1,8 +1,8 @@
 //
 //  AppDelegate.mm
-//  BounceMe
+//  bounceme
 //
-//  Created by Meet on 7/18/13.
+//  Created by Openxcell Game on 8/23/13.
 //  Copyright __MyCompanyName__ 2013. All rights reserved.
 //
 
@@ -10,7 +10,8 @@
 
 #import "AppDelegate.h"
 #import "IntroLayer.h"
-
+#import "FacebookScorer.h"
+#import "Game.h"
 @implementation AppController
 
 @synthesize window=window_, navController=navController_, director=director_;
@@ -38,7 +39,7 @@
 	director_.wantsFullScreenLayout = YES;
 	
 	// Display FSP and SPF
-	[director_ setDisplayStats:YES];
+	[director_ setDisplayStats:NO];
 	
 	// set FPS at 60
 	[director_ setAnimationInterval:1.0/60];
@@ -70,7 +71,13 @@
 	[sharedFileUtils setEnableFallbackSuffixes:NO];				// Default: NO. No fallback suffixes are going to be used
 	[sharedFileUtils setiPhoneRetinaDisplaySuffix:@"-hd"];		// Default on iPhone RetinaDisplay is "-hd"
 	[sharedFileUtils setiPadSuffix:@"-ipad"];					// Default on iPad is "ipad"
-	[sharedFileUtils setiPadRetinaDisplaySuffix:@"-ipadhd"];	// Default on iPad RetinaDisplay is "-ipadhd"
+	[sharedFileUtils setiPadRetinaDisplaySuffix:@"-ipadhd"];
+	
+    if((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) && ([[UIScreen mainScreen] bounds].size.height == 568||[[UIScreen mainScreen] bounds].size.width==568)) {
+        [sharedFileUtils setiPhoneRetinaDisplaySuffix: @"-568h@2x"];
+    }
+
+    // Default on iPad RetinaDisplay is "-ipadhd"
 	
 	// Assume that PVR images have premultiplied alpha
 	[CCTexture2D PVRImagesHavePremultipliedAlpha:YES];
@@ -116,8 +123,17 @@
 
 -(void) applicationDidEnterBackground:(UIApplication*)application
 {
-	if( [navController_ visibleViewController] == director_ )
-		[director_ stopAnimation];
+	if( [navController_ visibleViewController] == director_ ){
+        [director_ stopAnimation];
+        CCScene *current = [[CCDirector sharedDirector] runningScene];
+        if (current) {
+            id layer = [current getChildByTag:777];
+            if (layer) {
+                [layer intturuptHandler];
+            }
+        }
+    }
+		
 }
 
 -(void) applicationWillEnterForeground:(UIApplication*)application
@@ -143,13 +159,16 @@
 {
 	[[CCDirector sharedDirector] setNextDeltaTimeZero:YES];
 }
-
-- (void) dealloc
-{
-	[window_ release];
-	[navController_ release];
-	
-	[super dealloc];
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [[[FacebookScorer sharedInstance] facebook] handleOpenURL:url];
 }
+
+// For 4.2+ support
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[[FacebookScorer sharedInstance] facebook] handleOpenURL:url];
+}
+
+
+
 @end
 

@@ -1,8 +1,8 @@
 //
 //  HelloWorldLayer.h
-//  BounceMe
+//  bounceme
 //
-//  Created by Meet on 7/18/13.
+//  Created by Openxcell Game on 8/23/13.
 //  Copyright __MyCompanyName__ 2013. All rights reserved.
 //
 

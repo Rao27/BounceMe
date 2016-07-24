@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>BounceMe copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>BounceMe.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>bounceme.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>156D21DE1797F00F00B588BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CD9A9DC817C74C1200CCC491</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CD9A9FE017C74DAB00CCC491</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CD9AA12817C74E0600CCC491</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

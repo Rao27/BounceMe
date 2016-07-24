@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="64" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="b3" tilewidth="32" tileheight="32">
+  <image source="b3.png" width="352" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="base"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="type" value="base"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="type" value="base"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="type" value="base"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="type" value="base"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="type" value="base"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="type" value="base"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="type" value="base"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="type" value="base"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="type" value="base"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="type" value="base"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="23" name="background3" tilewidth="32" tileheight="32">
+  <image source="background3.png" width="640" height="2048"/>
+ </tileset>
+ <tileset firstgid="1303" name="o3.1" tilewidth="32" tileheight="32">
+  <image source="o3.1.png" width="96" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="showarrow" value="true"/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="1309" name="o3.2" tilewidth="32" tileheight="32">
+  <image source="o3.2.png" width="64" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="showarrow" value="true"/>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="type" value="obstacle"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="1313" name="sta1r-smalll" tilewidth="32" tileheight="32">
+  <image source="sta1r-smalll.png" width="32" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="type" value="points"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="background" width="20" height="64">
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+ <layer name="obstacleLayer1" width="20" height="64">
+  <data encoding="base64" compression="zlib">
+   eJzt1MEJwCAQBMD7WIMa03+dObAC4QgIM7DffS0bwaneIkZmtpq+J3tW5i3q41/2QCV7Am7hr4Ab+CqA7QO6sQOU
+  </data>
+ </layer>
+ <layer name="obstacleLayer2" width="20" height="64">
+  <data encoding="base64" compression="zlib">
+   eJzt1DkRADAMBLFrDCMPf5QJCDeekQBsuQkAMN2qZFdf7/zWbewBs3kMAMz2APpWAR0=
+  </data>
+ </layer>
+ <layer name="points" width="20" height="64">
+  <data encoding="base64" compression="zlib">
+   eJzt1bENABAARFGNQey/pCg0glAgkveqG+AnFwI3pdjfUGiCVq+JWSca4oTRd+mNXfphlT54TYPM1D50wk8yEHQCOw==
+  </data>
+ </layer>
+ <layer name="layer1" width="20" height="64">
+  <data encoding="base64" compression="zlib">
+   eJzt1UcKgEAUBNEx5xzuf1RrI8xCBxUFlS54W2Gg+RqjvpYHHwFCRIiRIEWGHMXB75WoUKNBiw49BoyYMN/2AvVUe9vIzblNrO1tYzLaxBe7ci9c9+bKvXDdG/Xv9O9Sd6dNqTVtQb09bVS5svdxdgtb2fvQFpTdArjUB5w=
+  </data>
+ </layer>
+</map>
